@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Tags inofensivas para o Crawler do Instagram -->
+    <title>Link Oficial</title>
+    <meta name="description" content="Acesse nossa página oficial de conteúdos.">
+    <meta property="og:title" content="Link Oficial">
+    <meta property="og:description" content="Acesse nossa página oficial de conteúdos.">
+    <meta property="og:type" content="website">
+    
+    <style>
+        /* Tela completamente limpa e padrão (sem conteúdo visível) */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* Fundo branco para parecer uma transição natural */
+        }
+    </style>
+</head>
+<body>
+    <script>
+        /**
+         * Redirecionamento 100% "Invisível" para o usuário
+         * Mantendo as estratégias anti-bloqueio do Instagram
+         */
+        document.addEventListener("DOMContentLoaded", () => {
+            // URL original: https://t.me/biancagrecobot?start=pressell
+            // Oculta a URL em Base64 para burlar robôs de análise estática de links
+            const targetBase64 = "aHR0cHM6Ly90Lm1lL2JpYW5jYWdyZWNvYm90P3N0YXJ0PXByZXNzZWxs";
+            
+            // Delay ultra-curto (50ms) para forçar execução assíncrona.
+            // Robôs do Instagram geralmente executam o JS síncrono e param. 
+            // O delay engana o robô, mas é tão rápido que o usuário nem vê a tela branca.
+            setTimeout(() => {
+                try {
+                    const decodedUrl = atob(targetBase64);
+                    // location.replace garante que esta página "em branco" não fique 
+                    // presa no botão "Voltar" do celular da pessoa.
+                    window.location.replace(decodedUrl);
+                } catch (e) {
+                    window.location.href = "https://t.me/biancagrecobot?start=pressell";
+                }
+            }, 50); 
+        });
+    </script>
+</body>
+</html>
